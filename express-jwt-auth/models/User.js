@@ -38,6 +38,11 @@ userSchema.pre('save', async function(next){
     next();
 })
 
+//Static method to login User
+userSchema.statics.login = async function (email, password) {
+ const user = await this.findOne({email});
+}
+
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
